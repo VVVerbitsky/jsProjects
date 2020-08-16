@@ -1,4 +1,4 @@
-var winIndex = [
+const winIndex = [
     [0, 1, 2], 
     [3, 4, 5], 
     [6, 7, 8], 
@@ -8,22 +8,21 @@ var winIndex = [
     [0, 4, 8], 
     [2, 4, 6]
 ];
-var bothPlayers=0;
-var winTime=0;
-var winBothTime=0;
-var playerX=0,playerO=0;
-var id;
-var positionX,positionY;
-var player=true;
-var pixels=document.getElementsByClassName('pixel');
-var clearField=document.getElementById('clearField');
+let bothPlayers=0;
+let winTime=0;
+let winBothTime=0;
+let playerX=0,playerO=0;
+let id;
+let player=true;
+const pixels=document.getElementsByClassName('pixel');
+const clearField=document.getElementById('clearField');
 clearField.addEventListener('click',clear);
-for(var i=0;i<pixels.length;i++){
+for(let i=0;i<pixels.length;i++){
     pixels[i].addEventListener('click',ticORtac);
 };
-var count=0;
+let count=0;
 function ticORtac(){
-    var pixCont=this.innerHTML;
+    const pixCont=this.innerHTML;
         if(pixCont==''&&id!=true){
             count++;
             if(player==true){
@@ -37,7 +36,7 @@ function ticORtac(){
     check();
 }
 function check(){
-    for(var j=0;j<winIndex.length;j++){
+    for(let j=0;j<winIndex.length;j++){
         id=winIndex[j];
         if(pixels[id[0]].innerHTML==pixels[id[1]].innerHTML&&pixels[id[1]].innerHTML==pixels[id[2]].innerHTML&&pixels[id[0]].innerHTML!=''){
             for(i=0;i<3;i++){
@@ -49,22 +48,21 @@ function check(){
             break;
         }
     };
-    both=true;
-    for(var i=0;i<pixels.length;i++){
+    let both=true;
+    for(let i=0;i<pixels.length;i++){
         if(pixels[i].innerHTML==''){
            both=false; 
         }
     };
     if(both==true&&id!=true&&winBothTime==0){
-        alert('draw');
         bothPlayers++;
         winBothTime++;
-        var noWin=document.getElementById('bothWin');
-        noWin.innerHTML='no win:'+bothPlayers;
+        const noWin=document.getElementById('draw');
+        noWin.innerHTML='draw:'+bothPlayers;
     };
 };
 function clear(){
-    for(var i=0;i<pixels.length;i++){
+    for(let i=0;i<pixels.length;i++){
         pixels[i].style.color='black';
         pixels[i].innerHTML='';
     };
@@ -77,11 +75,11 @@ function statistic(){
     if(winTime==1){
         if(player==false){
             playerX++;
-            var winX=document.getElementById('playerX');
+            const winX=document.getElementById('playerX');
             winX.innerHTML='player X win:'+playerX;
         }else{
             playerO++;
-            var winO=document.getElementById('playerO');
+            const winO=document.getElementById('playerO');
             winO.innerHTML='player 0 win:'+playerO;
         };
     }    
