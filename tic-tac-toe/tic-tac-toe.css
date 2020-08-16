@@ -2,16 +2,12 @@
     padding:0;
     margin:0;
 }
-div.ticTacToe{
-    height:500px;
-    width:100%;
-    min-width:500px;
-}
+
 div.play{
 width:216px;
 height:216px;
 margin:auto;
-/* border:1px solid black; */
+margin-top:50px;
 }
 div.pixel{
     width:70px;
@@ -22,19 +18,19 @@ div.pixel{
     border:1px solid black;
     font-weight: bold;
     font-size:50px;
-    transition:color 1s linear,transform 1s linear,border-radius 1s linear;
+    transition:color 0.3s linear,transform 1s linear,border-radius 1s linear;
 }
 div.clearfix{
     clear:both;
 }
 .info{
-    position: absolute;
+    text-align:center;
     width:100px;
     height:71px;
-    right:20px;
-    top:20px;
     border:1px solid black;
-
+    margin:auto;
+    margin-top:50px;
+    padding: 3px;
 }
 .pixel:hover{
     background-color: bisque;
@@ -42,7 +38,6 @@ div.clearfix{
 }
 button{
     margin-top:5px;
-    margin-left:30px;
 }
 .info div{
     font-size: 14px;
