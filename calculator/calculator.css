@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div{
     border:1px solid black;
     margin:8px 0 0 4px;
@@ -49,4 +50,57 @@ div{
     width:164px;
     margin:0;
     margin-left:26px;
+=======
+div{
+    border:1px solid black;
+    margin:8px 0 0 4px;
+}
+#caculator{
+    width:202px;
+    height:208px;
+    padding-left:2px;
+    margin:auto;
+}
+#screen{
+    height:32px;
+    width:190px;
+    margin-top:6px;
+    /* text-align: right; */
+
+}
+#clear{
+    margin-top:5px;
+    height:20px;
+    width:20px;
+    position: absolute;
+}
+.button,#ecvals{
+    width:40px;
+    line-height:30px;
+}
+.button, #clear,#ecvals{
+    text-align: center;
+    transition: .1s linear;
+    display: inline-block;
+}
+
+.button:hover, #clear:hover,#ecvals:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.button:active, #clear:active,#ecvals:active{
+    transform:scale(.8);
+}
+#line{
+    /* background-color: brown; */
+    border:none;
+    display:inline-block;
+    text-align: right;
+    height:32px;
+    line-height:30px;
+    width:164px;
+    margin:0;
+    margin-left:26px;
+>>>>>>> 7c4215a62733766663cb01baed1cb35fdeb89b74
 } 
