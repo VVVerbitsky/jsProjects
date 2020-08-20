@@ -1,0 +1,85 @@
+*{
+    margin:0;
+    padding:0;
+}
+#main{
+    /* border:1px solid black; */
+    width:550px;
+    min-height: 100px;
+    margin:80px auto;
+    padding-bottom:30px;
+    background-color: rgb(221, 221, 221);
+    padding-top:10px;
+    border-radius: 10px;
+}
+.add{
+    display:inline-block;
+    
+    width:40px;
+    line-height:37px;
+    /* min-height: 55px; */
+    position:relative;
+    top:-14px;
+    /* left:470px; 
+    top:-40px; */
+    text-align: center;
+    background-color: rgb(18, 85, 18);
+    color:white;
+    border-radius:10%;
+}
+.add:hover{
+    cursor:pointer;
+}
+.add:active{
+    transform: scale(0.9);
+}
+textarea{
+    display:inline-block;
+    resize: none;
+    font-size: 17px;
+    width:400px;
+    margin-left:31px;
+    border-radius:20px;
+    padding:10px;
+    height: 17px;
+    line-height: 17px;
+    outline:none;
+    text-align: center;
+    overflow: hidden;
+}
+.head{
+    
+    /* width:400px; */
+    margin-left:31px;
+    margin-right:31px;
+    font-weight: bold;
+    border-bottom:3px solid black;
+}
+.toDoElem{
+    display:flex;
+    padding-bottom:7px;
+    margin:10px 31px 5px 31px;
+    justify-content: space-between;
+    border-bottom:1px solid grey;
+}
+p{
+    display:inline-block;
+    width:416px;
+    padding-left:3px;
+}
+input{
+    margin-top:3px;
+}
+.completed>p{
+    text-decoration-line: line-through;
+    color:gray;
+}
+.delete:hover{
+    cursor: pointer;
+    color:green;
+}
+.delete{
+    padding:2px;
+    color:grey;
+    /* background-color: blue; */
+}
