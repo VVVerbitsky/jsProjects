@@ -1,34 +1,83 @@
 "use strict"
-const buttons = document.getElementsByClassName('button');
-const line    = document.getElementById('line');
-const clear   = document.getElementById('clear');
-const ecvals  = document.getElementById('ecvals');
-const operators = ['&divide', '*', '+', '-']; //unusable yet mb never?
-for(let i=0;i<buttons.length;i++){
-    buttons[i].addEventListener('click', func);
-}
-clear.addEventListener('click', clearing);
-ecvals.addEventListener('click', result)
+const line      = document.getElementById('line');
 
-function func(){ 
+const numbers   = document.getElementsByClassName('number');
+for(let i=0;i<numbers.length;i++){
+    numbers[i].addEventListener('click', addNumber);
+}
+const operators = document.getElementsByClassName('operator');
+for(let i=0;i<operators.length;i++){
+    operators[i].addEventListener('click', addOperator);
+}
+const clear     = document.getElementById('clear');
+clear.addEventListener('click', clearLine);
+let onScreenNumber=0;
+let offScreenNumber=0
+let firstNumber=0, secondNumber=0, udefindNumber=0; //firstNumber operator secondNumber = result
+let accessForOperator = true;
+let accessForNumber   = true;
+let operator='empty';
+//const operators = ['/', '*', '+', '-']; //unusable yet mb never?
+function addNumber(){ 
     const type=this.getAttribute('data-type');
     const inLine=line.innerHTML;
-    const lastSumbolInLine=inLine.charAt(inLine.length-1);
-    line.innerHTML=inLine+type;
-    if(type=='/'||type=='*'||type=='-'||type=='+'){
-        if(lastSumbolInLine=='/'||lastSumbolInLine=='*'||lastSumbolInLine=='+'||lastSumbolInLine=='-'){
-            line.innerHTML='error';
-        }   
-    };
+    if (accessForNumber==true){
+        if (inLine=='0'){
+            line.innerHTML = type
+            
+        } else {
+            line.innerHTML = inLine+type;
+        }
+        accessForOperator  = true;
+    } else {
+        line.innerHTML     = type;
+        accessForNumber    = true;
+    }
     if(line.innerHTML.length>20){
-        line.innerHTML='too long';
-    };
+        line.innerHTML     = 'too long';
+    }
+}   
+function addOperator(){
+    result();
+    operator=this.getAttribute('data-type');
+    offScreenNumber=line.innerHTML;
+    accesForNumber=false;
+
+
 }
-function clearing(){
-    line.innerHTML='';
+//     const lastSumbolInLine=inLine.charAt(inLine.length-1);
+//     line.innerHTML=inLine+type;
+//     if(type=='/'||type=='*'||type=='-'||type=='+'){
+//         if(lastSumbolInLine=='/'||lastSumbolInLine=='*'||lastSumbolInLine=='+'||lastSumbolInLine=='-'){
+//             line.innerHTML='error';
+//         }   
+//     };
+//     if(line.innerHTML.length>20){
+//         line.innerHTML='too long';
+//     };
+// }
+
+function clearLine(){
+    line.innerHTML='0';
+    operator='empty';
 }
+
 function result(){
-    line.innerHTML=eval(line.innerHTML); //should fix this and after that fix '/' on screen to '&divide'
+    switch (operator){
+        case '/':
+            line.innerHTML=firstNumber/secondNumber;
+            break;
+        case '+':
+            line.innerHTML=firstNumber+secondNumber;
+            break;
+        case '-':
+            line.innerHTML=firstNumber-secondNumber;
+            break;   
+        case '*':
+            line.innerHTML=firstNumber*secondNumber;
+            break;       
+    }
+    
     if(line.innerHTML.length>20){
         line.innerHTML='too long';
     };
