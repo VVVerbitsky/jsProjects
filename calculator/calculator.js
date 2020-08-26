@@ -11,74 +11,67 @@ for(let i=0;i<operators.length;i++){
 }
 const clear     = document.getElementById('clear');
 clear.addEventListener('click', clearLine);
-let onScreenNumber=0;
-let offScreenNumber=0
-let firstNumber=0, secondNumber=0, udefindNumber=0; //firstNumber operator secondNumber = result
+const ecvals     = document.getElementById('ecvals');
+ecvals.addEventListener('click', result);
+let firstNumber=0;
+let secondNumber=0;
+let onScreenNumber    = 0;
+let offScreenNumber   = 0;
 let accessForOperator = true;
-let accessForNumber   = true;
+let continueNumber    = false;
 let operator='empty';
+let hardNumberPrepareToSave=false;
+let hardNumber;
 //const operators = ['/', '*', '+', '-']; //unusable yet mb never?
 function addNumber(){ 
     const type=this.getAttribute('data-type');
     const inLine=line.innerHTML;
-    if (accessForNumber==true){
-        if (inLine=='0'){
-            line.innerHTML = type
-            
-        } else {
-            line.innerHTML = inLine+type;
-        }
-        accessForOperator  = true;
+    if (continueNumber==true){
+        line.innerHTML = inLine+type;
     } else {
         line.innerHTML     = type;
-        accessForNumber    = true;
+        continueNumber    = true;
     }
     if(line.innerHTML.length>20){
         line.innerHTML     = 'too long';
     }
 }   
 function addOperator(){
-    result();
     operator=this.getAttribute('data-type');
-    offScreenNumber=line.innerHTML;
-    accesForNumber=false;
-
+    offScreenNumber=+line.innerHTML;
+    firstNumber=offScreenNumber;
+    continueNumber=false;
+    hardNumberPrepareToSave=true;
 
 }
-//     const lastSumbolInLine=inLine.charAt(inLine.length-1);
-//     line.innerHTML=inLine+type;
-//     if(type=='/'||type=='*'||type=='-'||type=='+'){
-//         if(lastSumbolInLine=='/'||lastSumbolInLine=='*'||lastSumbolInLine=='+'||lastSumbolInLine=='-'){
-//             line.innerHTML='error';
-//         }   
-//     };
-//     if(line.innerHTML.length>20){
-//         line.innerHTML='too long';
-//     };
-// }
-
 function clearLine(){
     line.innerHTML='0';
     operator='empty';
+    continueNumber   = false;
 }
 
 function result(){
+    onScreenNumber=+line.innerHTML;
+    secondNumber=onScreenNumber;
+    console.log(offScreenNumber,' ',operator,' ',onScreenNumber)
     switch (operator){
         case '/':
-            line.innerHTML=firstNumber/secondNumber;
+            line.innerHTML=offScreenNumber/onScreenNumber;
             break;
         case '+':
-            line.innerHTML=firstNumber+secondNumber;
+            line.innerHTML=offScreenNumber+onScreenNumber;
             break;
         case '-':
-            line.innerHTML=firstNumber-secondNumber;
+            line.innerHTML=offScreenNumber-onScreenNumber;
             break;   
         case '*':
-            line.innerHTML=firstNumber*secondNumber;
+            line.innerHTML=offScreenNumber*onScreenNumber;
             break;       
     }
     
     if(line.innerHTML.length>20){
         line.innerHTML='too long';
     };
+    offScreenNumber=+line.innerHTML;
+    continueNumber=false;
 }
