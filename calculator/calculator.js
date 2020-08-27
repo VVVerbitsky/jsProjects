@@ -63,22 +63,6 @@ function clearAll(){
     previousEventISaddNumber=undefined;
     operator=undefined;
 }
-
-function fractionalCheck(){
-    let fractionalLength=0;
-    if (leftNumber%1!=0){
-        fractionalLength=(leftNumber+'').split('.').pop().length;
-        leftNumber=leftNumber*10**fractionalLength;
-        rightNumber=rightNumber*10**fractionalLength;
-        
-    }
-    if (rightNumber%1!=0){
-        fractionalLength=fractionalLength+(rightNumber+'').split('.').pop().length;
-        leftNumber=leftNumber*10**fractionalLength;
-        rightNumber=rightNumber*10**fractionalLength;
-    }
-    return fractionalLength;
-}
 function result(){
     if(operator!=undefined){
         function fractionalCheck(){
