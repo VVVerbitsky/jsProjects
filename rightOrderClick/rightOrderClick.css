@@ -1,0 +1,37 @@
+*{
+    text-align: center;
+}
+td{
+    line-height: 60px;
+    height:60px;
+    width:60px;
+    border:1px solid black;
+}
+
+.active{
+    background:red;
+}
+button{
+    display:block;
+    margin:auto;
+}
+div{
+    margin:auto;
+    width:300px;
+}
+#timer,.text{
+    display: inline-block;
+   text-align: right;
+    width:63px;
+    /* width:80px; */
+}
+table{
+   
+}
+.info{
+    width:78px;
+}
+#timer{
+    text-align: left;
+    width:15px;
+}
