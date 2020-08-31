@@ -26,7 +26,8 @@
                 console.log('right');
                 break;
             case 40:
-                filledCell.style.marginTop=+filledCell.style.marginTop.split('px')[0]+110+'px';
+                // filledCell.style.marginTop=+filledCell.style.marginTop.split('px')[0]+110+'px';
+                moveDown();
                 console.log('down');
                 break;
         }
@@ -48,15 +49,50 @@
         }
     }
     drawField(4, 4);
-    let cell=document.getElementById('1,2');
-    let filledCell=document.createElement('div');
-    filledCell.className='filled';
-    filledCell.style.backgroundColor='rgb(238, 228, 218)';
-    filledCell.style.color='rgb(119, 110, 101)'
-    filledCell.innerHTML='2';
-    cell.appendChild(filledCell);
+    function spawnFilledCell(x, y){
+        let cell=document.getElementById(x+','+y);
+        let filledCell=document.createElement('div');
+        filledCell.className='filled';
+        filledCell.style.backgroundColor='rgb(238, 228, 218)';
+        filledCell.style.color='rgb(119, 110, 101)'
+        let cellContent=getRandomInt(2,4);
+        filledCell.innerHTML=cellContent>3? 4:2;
+        cell.appendChild(filledCell);
+    }
+    function spawnFilledCellINrandomCell(){
+        let x=getRandomInt(0,3);
+        let y=getRandomInt(0,3);
+        let checkingCellContent=document.getElementById(x+','+y).innerHTML;
+        if(checkingCellContent==''){
+            spawnFilledCell(x, y);
+        } else{
+            console.log('cannot fill filled cell');
+            spawnFilledCellINrandomCell()}
+    }
 
-
-
-
+    function startSpawn(){
+        spawnFilledCellINrandomCell();
+        spawnFilledCellINrandomCell()
+    };
+    startSpawn();
+    let test=document.getElementsByClassName('cell');
+    for (let i=0;i<test.length;i++){
+        console.log(test[i].innerHTML)
+    }
+    // spawnFilledCell(2, 2)
+    console.log(document.getElementById('0,0').innerHTML,'-----inner')
+    // document.getElementById('0,0')
+    function moveDown(){
+        // const cells=document.getElementsByClassName('cell');
+        for(let line=2; line>=0; line--){
+            for(let row=0; row<=3; row++){
+                if (line==2){
+                    if(document.getElementById((line+1)+','+row)==''){
+                        movingCellMargin=document.getElementById(line+','+row).style.marginTop;
+                        movingCellMargin=movingCellMargin.split('px')[0]+110+'px';
+                    }
+                }
+            }
+        }
+    }
 }()
