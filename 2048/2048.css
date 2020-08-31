@@ -3,6 +3,31 @@
     padding:0;
     margin:0;
 }
+@keyframes moveTop{
+    from{
+
+        margin-top:0px;
+    }
+    5%{
+        margin-top:110px;
+    }
+    25%{
+        margin-top:110px;
+    }
+    50%{
+        margin-top:0px;
+    }
+    55%{
+        margin-top:-110px;
+    }
+    75%{
+        margin-top:-110px;
+    }
+    to{
+
+        margin-top:0px;
+    }
+}
 #field{
     padding-top: 1px;
     margin:auto;
@@ -17,16 +42,36 @@
     height: 100px;
     margin-top:10px;
 
+
+
     
 }
 .cell{
+ 
     margin-left:10px;
     width:100px;
     height:100px;
     background-color: rgb(205, 193, 180);;
     float: left;
     border-radius: 6%;
+
 }
 .clearfix{
     clear:both;
+}
+.filled{
+    position: relative;
+    text-align:center;
+    color:white;
+    line-height: 100px;
+    font-weight: bold;
+    font-size:50px;
+    height:100px;
+    width:100px;
+    border-radius: 6%;
+    transition: .25s;
+    /* margin-top:110px; */
+    /* animation: moveTop 3s linear infinite normal; */
+
+ 
 }
