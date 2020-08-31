@@ -1,0 +1,65 @@
+
+
+    body{
+
+        margin: 0;
+    
+        padding: 0;
+    
+        border: 0;
+    
+        }
+        .border{
+            z-index: -15;
+            position: absolute;
+            top: 9px;
+            background: #222;
+            background: radial-gradient(rgb(56, 56, 56), rgb(0, 0, 0));
+            left: 39px;
+            width: 510px;
+            height: 565px;
+            /* border: 2px solid #001100; */
+        }
+        .score{
+            margin-top: 10px;
+            margin-left: 72px;
+            font-size: 31px;
+            color: #FF0000;
+            text-shadow: 0 0 6px #010;
+        }
+        .field{
+            z-index: 30;            
+            height: 23px;
+            margin-left: 53px;
+            /* background: 1px solid black; */
+        }
+        .cell{
+            margin: 0;
+            display: inline-block;
+            background-color: rgb(190, 66, 66);
+            
+            width: 22px;
+            height: 22px;
+            border: 1px solid rgb(65, 65, 65);
+            border-radius: 1px;
+            z-index: 30;
+            transition: background-color .9s;
+            opacity: 0.5;
+        }
+        .snake{
+            /* box-shadow: 0 0 10px #000000 inset; */
+            background: linear-gradient(to right, rgb(221, 221, 221), rgb(255, 255, 255));
+            z-index: 30;
+            transition: background-color 0.7s;
+            opacity: 1;
+            border: 1px solid rgb(158, 158, 158);
+        }
+        .food{
+            background-color:rgb(21, 255, 0);
+            z-index: 30;
+            box-shadow: 0 0 10px #000000 inset;
+            transition: background-color 3s;
+            opacity: 1;
+            border-radius: 8px;
+            /* box-shadow: 5px 5px rgb(179, 236, 157); */
+        }
