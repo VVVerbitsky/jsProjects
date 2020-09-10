@@ -6,6 +6,18 @@
 body{
     height:2000px;
 }
+@keyframes appear{
+    from{
+
+        scale:0;
+    }
+    50%{
+        scale:1.2;
+    }
+    to{
+        scale:1;
+    }
+}
 @keyframes moveTop{
     from{
 
