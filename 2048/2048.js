@@ -3,7 +3,7 @@
     
     // console.log('array test', fieldINarray[1][0][0])
 
-    drawField(4, 4);
+    drawField();
     // console.log(document.getElementById('0-1'),'x:0,y:1')
     // console.log(document.getElementById('1-0'),'x:1,y:0')
     // fillingFieldWithArray(fieldINarray);//gonna be deleted later
@@ -12,6 +12,8 @@
         addRandomFilledCellTOfieldINarray();
         fillingFieldWithArray(fieldINarray);
     }()
+    // moveTheFieldINarrDown(fieldINarray)
+    // console.log(fieldINarray)
    
    
 

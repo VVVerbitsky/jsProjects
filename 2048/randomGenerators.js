@@ -4,6 +4,5 @@ function getRandomInt(min, max) {
 
 
 function getRandomInnerNumber() {
-    let cellContent = getRandomInt(2, 4) < 4 ? 2 : 4;
-    return cellContent
+    return cellContent = getRandomInt(2, 4) < 4 ? 2 : 4;
 }

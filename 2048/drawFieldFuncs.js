@@ -1,8 +1,8 @@
-function drawField(sizeX, sizeY) { //x-line, y-row
-    for (let x = 0; x < sizeX; x++) {
+function drawField() { //x-line, y-row
+    for (let x = 0; x < 4; x++) {
         const divX = document.createElement('div');
         divX.className = 'line';
-        for (let y = 0; y < sizeY; y++) {
+        for (let y = 0; y < 4; y++) {
             const divY = document.createElement('div');
             divY.className = 'cell';
             divY.id = x + '-' + y;
@@ -16,7 +16,7 @@ function drawField(sizeX, sizeY) { //x-line, y-row
 function fillingFieldWithArray(fieldINarray) {
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
-            let cellsInnerNumberINarray = fieldINarray[i][j][0];
+            const cellsInnerNumberINarray = fieldINarray[i][j][0];
             if (cellsInnerNumberINarray != 0) {
                 console.log('detected not empty cell - ', cellsInnerNumberINarray);
                 const cell = document.getElementById(i + '-' + j);
