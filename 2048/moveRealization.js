@@ -27,18 +27,33 @@ function moveTo(arrowKey, fieldINarr){
 }
 function moveTheFieldINarrDown(fieldINarr){
     for (let row = 2; row>=0; row--){
-        console.log('come in ',row,' row')
+        // console.log('come in ',row,' row')
         for (let column = 0; column<=3; column++){
             // let emptySpaceBetweenEcvNumbers=true;
-            console.log('come in ',column,' column')
+            // console.log('come in ',column,' column')
             for(let checkingRow=row+1; checkingRow<=3;checkingRow++){
-                console.log('now is checking ', checkingRow, 'checkingRow')
+                console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
                 // console.log(fieldINarr[checkingRow][column][0],' its fieldINarr[checkingRow][column]')
                 // console.log(fieldINarr[row][column][0],' its fieldINarr[row][column]')
 
-                if(  (fieldINarr[checkingRow][column][0]===0  ||  fieldINarr[checkingRow][column][1]!==0  )  &&  fieldINarr[row][column][0]!==0){
-                    fieldINarr[row][column][1]++;
-                    fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
+                // if(  (fieldINarr[checkingRow][column][0]===0  ||  fieldINarr[checkingRow][column][1]!==0  )  &&  fieldINarr[row][column][0]!==0){
+                //     fieldINarr[row][column][1]++;
+                //     fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
+                // }
+                if(fieldINarr[row][column][0]!==0){
+                    if(fieldINarr[checkingRow][column][0]===0){
+                        fieldINarr[row][column][1]++;
+                        console.log(fieldINarr[row][column][1], ' fieldINarr[row][column][1]')
+                    } else {
+                        if(fieldINarr[checkingRow][column][1]!==0){
+                            console.log(fieldINarr[checkingRow][column][1], ' fieldINarr[checkingRow][column][1]')
+                            console.log(fieldINarr[row][column][1], ' fieldINarr[row][column][1]')
+                            fieldINarr[row][column][1]=fieldINarr[checkingRow][column][1];
+                            console.log(fieldINarr[row][column][1], ' fieldINarr[row][column][1]')
+                        }
+                        checkingRow=4; //leaving 'for' cause objects thats are under this objects has already moved
+                    }
+                
                 }
             }
         }
@@ -65,3 +80,16 @@ function moveTheFieldINarrUp(fieldINarr){
     }
     console.log(fieldINarr)
 }
+
+
+
+
+// if(fieldINarr[row][column][0]!==0){
+//     if(fieldINarr[checkingRow][column][0]===0){
+//         fieldINarr[row][column][1]++;
+//     }
+//     if(fieldINarr[checkingRow][column][1]!==0){
+//         fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
+//     }
+
+// }
