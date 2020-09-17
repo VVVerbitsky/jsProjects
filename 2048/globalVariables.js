@@ -13,8 +13,8 @@ const colorsLibrary = {
     2048: ['rgb(237, 194, 46)', 'rgb(249, 246, 242)']
 };
 //fieldINarray[row][column][number in filled cell = 0 or count to move = 1(for moveWithArrow function)] 
-let fieldINarray = [[[0, 0], [0, 0], [0, 0], [0, 0]],
-                    [[1024, 0], [0, 0], [0, 0], [8, 0]],
-                    [[2, 0], [256, 0], [4, 0], [0, 0]],
-                    [[0, 0], [0, 0], [0, 0], [32, 0]]];
-console.log(fieldINarray[1][0][0])
+let fieldINarray = [[[0, 0], [4, 0], [4, 0], [8, 0]],
+                    [[2, 0], [0, 0], [0, 0], [0, 0]],
+                    [[0, 0], [0, 0], [2, 0], [8, 0]],
+                    [[0, 0], [0, 0], [0, 0], [0, 0]]];
+// console.log(fieldINarray[1][0][0])

@@ -14,12 +14,23 @@ function drawField() { //x-line, y-row
 }
 
 function fillingFieldWithArray(fieldINarray) {
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            const cellsInnerNumberINarray = fieldINarray[i][j][0];
+    clearField();
+    addFilledCellsFromArrayToHTML(fieldINarray);
+
+}
+ function clearField(){
+     const cells=document.getElementsByClassName('cell');
+     for(let index in cells ){
+         cells[index].innerHTML='';
+     }
+ }
+ function addFilledCellsFromArrayToHTML(fieldINarray){
+    for (let row = 0; row < 4; row++) {
+        for (let column = 0; column < 4; column++) {
+            const cellsInnerNumberINarray = fieldINarray[row][column][0];
             if (cellsInnerNumberINarray != 0) {
-                console.log('detected not empty cell - ', cellsInnerNumberINarray);
-                const cell = document.getElementById(i + '-' + j);
+                // console.log('detected not empty cell - ', cellsInnerNumberINarray);
+                const cell = document.getElementById(row + '-' + column);
                 // console.log(cell.innerHTML,' cellsInner')
                 const filledCell = document.createElement('div');
                 filledCell.className = 'filled';

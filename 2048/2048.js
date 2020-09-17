@@ -10,8 +10,10 @@
     !function drawStartField(){
         addRandomFilledCellTOfieldINarray();
         addRandomFilledCellTOfieldINarray();
-        fillingFieldWithArray(fieldINarray);
+        addFilledCellsFromArrayToHTML(fieldINarray);
     }()
+    fillingFieldWithArray(fieldINarray);
+    // clearField()
     // moveTheFieldINarrDown(fieldINarray)
     // console.log(fieldINarray)
    
