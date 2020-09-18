@@ -6,48 +6,133 @@ function moveTo(arrowKey, fieldINarr){
     switch (arrowKey.keyCode) {
         case 37:
             // filledCell.style.marginLeft = +filledCell.style.marginLeft.split('px')[0] - 110 + 'px';
+            moveLeft(fieldINarr)
             console.log('left');
             break;
         case 38:
-                moveTheFieldINarrUp(fieldINarr)
             // filledCell.style.marginTop = +filledCell.style.marginTop.split('px')[0] - 110 + 'px';
+            moveUp(fieldINarr)
             console.log('up');
             break;
         case 39:
             // filledCell.style.marginLeft = +filledCell.style.marginLeft.split('px')[0] + 110 + 'px';
+            moveRight(fieldINarr)
             console.log('right');
             break;
         case 40:
-                moveTheFieldINarrDown(fieldINarr)
             // filledCell.style.marginTop = +filledCell.style.marginTop.split('px')[0] + 110 + 'px';
-            // moveDown();
+            moveDown(fieldINarr)
             console.log('down');
             break;
     }
 }
+function moveDown(fieldINarr){
+    console.log(fieldINarr);
+    if(moveTheFieldINarrDown(fieldINarr)){
+        addRandomFilledCellTOfieldINarray();
+        fillingFieldWithArray(fieldINarr);
+        console.log(fieldINarr);
+    }
+}
+function moveUp(fieldINarr){
+    console.log(fieldINarr);
+    if(moveTheFieldINarrUp(fieldINarr)){
+        addRandomFilledCellTOfieldINarray();
+        fillingFieldWithArray(fieldINarr);
+        console.log(fieldINarr);
+    }
+}
+function moveLeft(fieldINarr){
+    console.log(fieldINarr);
+    if(moveTheFieldINarrLeft(fieldINarr)){
+        addRandomFilledCellTOfieldINarray();
+        fillingFieldWithArray(fieldINarr);
+        console.log(fieldINarr);
+    }
+}
+function moveRight(fieldINarr){
+    console.log(fieldINarr);
+    if(moveTheFieldINarrRight(fieldINarr)){
+        addRandomFilledCellTOfieldINarray();
+        fillingFieldWithArray(fieldINarr);
+        console.log(fieldINarr);
+    }
+}
 function moveTheFieldINarrDown(fieldINarr){
-    console.log(fieldINarr)
+    let permittedMove=false;
     for (let row = 2; row>=0; row--){
-        // console.log('come in ',row,' row')
         for (let column = 0; column<=3; column++){
-            // let emptySpaceBetweenEcvNumbers=true;
-            // console.log('come in ',column,' column')
             if(fieldINarr[row][column][0]!==0){
                 for(let checkingRow=row+1; checkingRow<=3;checkingRow++){
                     console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
-                    // console.log(fieldINarr[checkingRow][column][0],' its fieldINarr[checkingRow][column]')
-                    // console.log(fieldINarr[row][column][0],' its fieldINarr[row][column]')
-
-                    // if(  (fieldINarr[checkingRow][column][0]===0  ||  fieldINarr[checkingRow][column][1]!==0  )  &&  fieldINarr[row][column][0]!==0){
-                    //     fieldINarr[row][column][1]++;
-                    //     fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
-                    // }
                     if(fieldINarr[checkingRow][column][0]===0){
+                        permittedMove=true;
+                        fieldINarr[checkingRow][column][0]=fieldINarr[row][column][0];
+                        fieldINarr[row][column][0]=0;
+                        row=checkingRow;
+                    } else {
+                        if(fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0]){
+                            permittedMove=true;
+                            fieldINarr[checkingRow][column][0]*=2;
+                            fieldINarr[row][column][0]=0;
+                        }else{
+                            break;
+                        }
+                    } 
+                    
+                }
+            }
+        }
+    }
+    return permittedMove;
+}
+
+function moveTheFieldINarrRight(fieldINarr){
+    let permittedMove=false;
+    for (let column = 2; column>=0; column--){
+        for (let row = 0; row<=3; row++){
+            if(fieldINarr[row][column][0]!==0){
+                for(let checkingColumn=column+1; checkingColumn<=3; checkingColumn++){
+                    console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
+                    if(fieldINarr[row][checkingColumn][0]===0){
+                        permittedMove=true;
+                        fieldINarr[row][checkingColumn][0]=fieldINarr[row][column][0]
+                        fieldINarr[row][column][0]=0
+                        column=checkingColumn;
+                    } else {
+                        if(fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0]){
+                            permittedMove=true;
+                            fieldINarr[row][checkingColumn][0]*=2
+                            fieldINarr[row][column][0]=0
+                        }else{
+                            break;
+                        }
+                    } 
+                    
+                }
+            }
+        }
+    }
+    return permittedMove;
+}
+
+function moveTheFieldINarrUp(fieldINarr){
+    let permittedMove=false;
+    for (let row = 1; row<=3; row++){
+        for (let column = 0; column<=3; column++){
+            // console.log(row,' ',column)
+            if(fieldINarr[row][column][0]!==0){
+                for(let checkingRow=row-1; checkingRow>=0;checkingRow--){
+                    console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
+                    if(fieldINarr[checkingRow][column][0]===0){
+                        permittedMove=true;
+                        // console.log('came in if after checking')
                         fieldINarr[checkingRow][column][0]=fieldINarr[row][column][0]
                         fieldINarr[row][column][0]=0
                         row=checkingRow;
                     } else {
                         if(fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0]){
+                            permittedMove=true;
                             fieldINarr[checkingRow][column][0]*=2
                             fieldINarr[row][column][0]=0
                         }else{
@@ -59,40 +144,34 @@ function moveTheFieldINarrDown(fieldINarr){
             }
         }
     }
-    console.log(fieldINarr);
-    // clearField();
-    fillingFieldWithArray(fieldINarray);
+    return permittedMove;
 }
-function moveTheFieldINarrUp(fieldINarr){
-    for (let row = 1; row<=3; row++){
-        console.log('come in ',row,' row')
-        for (let column = 0; column<=3; column++){
-            // let emptySpaceBetweenEcvNumbers=true;
-            console.log('come in ',column,' column')
-            for(let checkingRow=row-1; checkingRow>=0;checkingRow--){
-                console.log('now is checking ', checkingRow, 'checkingRow')
-                // console.log(fieldINarr[checkingRow][column][0],' its fieldINarr[checkingRow][column]')
-                // console.log(fieldINarr[row][column][0],' its fieldINarr[row][column]')
 
-                if(  (fieldINarr[checkingRow][column][0]===0  ||  fieldINarr[checkingRow][column][1]!==0  )  &&  fieldINarr[row][column][0]!==0){
-                    fieldINarr[row][column][1]++;
-                    fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
+function moveTheFieldINarrLeft(fieldINarr){
+    let permittedMove=false;
+    for (let column = 1; column<=3; column++){
+        for (let row = 0; row<=3; row++){
+            if(fieldINarr[row][column][0]!==0){
+                for(let checkingColumn=column-1; checkingColumn>=0; checkingColumn--){
+                    console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
+                    if(fieldINarr[row][checkingColumn][0]===0){
+                        permittedMove=true;
+                        fieldINarr[row][checkingColumn][0]=fieldINarr[row][column][0]
+                        fieldINarr[row][column][0]=0
+                        column=checkingColumn;
+                    } else {
+                        if(fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0]){
+                            permittedMove=true;
+                            fieldINarr[row][checkingColumn][0]*=2
+                            fieldINarr[row][column][0]=0
+                        }else{
+                            break;
+                        }
+                    } 
+                    
                 }
             }
         }
     }
-    console.log(fieldINarr)
+    return permittedMove;
 }
-
-
-
-
-// if(fieldINarr[row][column][0]!==0){
-//     if(fieldINarr[checkingRow][column][0]===0){
-//         fieldINarr[row][column][1]++;
-//     }
-//     if(fieldINarr[checkingRow][column][1]!==0){
-//         fieldINarr[row][column][1]+=fieldINarr[checkingRow][column][1];
-//     }
-
-// }
