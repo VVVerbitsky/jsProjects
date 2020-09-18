@@ -28,7 +28,7 @@ function moveTo(arrowKey, fieldINarr){
 }
 function moveDown(fieldINarr){
     console.log(fieldINarr);
-    if(moveTheFieldINarrDown(fieldINarr)){
+    if( moveTheFieldINarrDown(fieldINarr) ){
         addRandomFilledCellTOfieldINarray();
         fillingFieldWithArray(fieldINarr);
         console.log(fieldINarr);
@@ -36,7 +36,7 @@ function moveDown(fieldINarr){
 }
 function moveUp(fieldINarr){
     console.log(fieldINarr);
-    if(moveTheFieldINarrUp(fieldINarr)){
+    if( moveTheFieldINarrUp(fieldINarr) ){
         addRandomFilledCellTOfieldINarray();
         fillingFieldWithArray(fieldINarr);
         console.log(fieldINarr);
@@ -44,7 +44,7 @@ function moveUp(fieldINarr){
 }
 function moveLeft(fieldINarr){
     console.log(fieldINarr);
-    if(moveTheFieldINarrLeft(fieldINarr)){
+    if( moveTheFieldINarrLeft(fieldINarr) ){
         addRandomFilledCellTOfieldINarray();
         fillingFieldWithArray(fieldINarr);
         console.log(fieldINarr);
@@ -52,7 +52,7 @@ function moveLeft(fieldINarr){
 }
 function moveRight(fieldINarr){
     console.log(fieldINarr);
-    if(moveTheFieldINarrRight(fieldINarr)){
+    if( moveTheFieldINarrRight(fieldINarr) ){
         addRandomFilledCellTOfieldINarray();
         fillingFieldWithArray(fieldINarr);
         console.log(fieldINarr);
@@ -60,21 +60,21 @@ function moveRight(fieldINarr){
 }
 function moveTheFieldINarrDown(fieldINarr){
     let permittedMove=false;
-    for (let row = 2; row>=0; row--){
-        for (let column = 0; column<=3; column++){
-            if(fieldINarr[row][column][0]!==0){
-                for(let checkingRow=row+1; checkingRow<=3;checkingRow++){
+    for (let row = 2; row >= 0; row--){
+        for (let column = 0; column <= 3; column++){
+            if( fieldINarr[row][column][0]!==0 ){
+                for(let checkingRow = row+1; checkingRow <= 3; checkingRow++){
                     console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
-                    if(fieldINarr[checkingRow][column][0]===0){
-                        permittedMove=true;
-                        fieldINarr[checkingRow][column][0]=fieldINarr[row][column][0];
-                        fieldINarr[row][column][0]=0;
-                        row=checkingRow;
+                    if( fieldINarr[checkingRow][column][0]===0 ){
+                        permittedMove                      =true;
+                        fieldINarr[checkingRow][column][0] =fieldINarr[row][column][0];
+                        fieldINarr[row][column][0]         =0;
+                        row                                =checkingRow;
                     } else {
-                        if(fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0]){
-                            permittedMove=true;
-                            fieldINarr[checkingRow][column][0]*=2;
-                            fieldINarr[row][column][0]=0;
+                        if( fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0] ){
+                            permittedMove                       =true;
+                            fieldINarr[checkingRow][column][0] *=2;
+                            fieldINarr[row][column][0]          =0;
                         }else{
                             break;
                         }
@@ -89,21 +89,21 @@ function moveTheFieldINarrDown(fieldINarr){
 
 function moveTheFieldINarrRight(fieldINarr){
     let permittedMove=false;
-    for (let column = 2; column>=0; column--){
-        for (let row = 0; row<=3; row++){
-            if(fieldINarr[row][column][0]!==0){
-                for(let checkingColumn=column+1; checkingColumn<=3; checkingColumn++){
+    for (let column = 2; column >= 0; column--){
+        for (let row = 0; row <= 3; row++){
+            if( fieldINarr[row][column][0]!==0 ){
+                for(let checkingColumn = column+1; checkingColumn <= 3; checkingColumn++){
                     console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
-                    if(fieldINarr[row][checkingColumn][0]===0){
-                        permittedMove=true;
-                        fieldINarr[row][checkingColumn][0]=fieldINarr[row][column][0]
-                        fieldINarr[row][column][0]=0
-                        column=checkingColumn;
+                    if( fieldINarr[row][checkingColumn][0]===0 ){
+                        permittedMove                      =true;
+                        fieldINarr[row][checkingColumn][0] =fieldINarr[row][column][0];
+                        fieldINarr[row][column][0]         =0;
+                        column                             =checkingColumn;
                     } else {
-                        if(fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0]){
-                            permittedMove=true;
-                            fieldINarr[row][checkingColumn][0]*=2
-                            fieldINarr[row][column][0]=0
+                        if( fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0] ){
+                            permittedMove                       =true;
+                            fieldINarr[row][checkingColumn][0] *=2;
+                            fieldINarr[row][column][0]          =0;
                         }else{
                             break;
                         }
@@ -118,23 +118,21 @@ function moveTheFieldINarrRight(fieldINarr){
 
 function moveTheFieldINarrUp(fieldINarr){
     let permittedMove=false;
-    for (let row = 1; row<=3; row++){
-        for (let column = 0; column<=3; column++){
-            // console.log(row,' ',column)
-            if(fieldINarr[row][column][0]!==0){
-                for(let checkingRow=row-1; checkingRow>=0;checkingRow--){
+    for (let row = 1; row <= 3; row++){
+        for (let column = 0; column <= 3; column++){
+            if( fieldINarr[row][column][0]!==0 ){
+                for(let checkingRow = row-1; checkingRow >= 0;checkingRow--){
                     console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
-                    if(fieldINarr[checkingRow][column][0]===0){
-                        permittedMove=true;
-                        // console.log('came in if after checking')
-                        fieldINarr[checkingRow][column][0]=fieldINarr[row][column][0]
-                        fieldINarr[row][column][0]=0
-                        row=checkingRow;
+                    if( fieldINarr[checkingRow][column][0]===0 ){
+                        permittedMove                      =true;
+                        fieldINarr[checkingRow][column][0] =fieldINarr[row][column][0];
+                        fieldINarr[row][column][0]         =0;
+                        row                                =checkingRow;
                     } else {
-                        if(fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0]){
-                            permittedMove=true;
-                            fieldINarr[checkingRow][column][0]*=2
-                            fieldINarr[row][column][0]=0
+                        if( fieldINarr[checkingRow][column][0]===fieldINarr[row][column][0] ){
+                            permittedMove                       =true;
+                            fieldINarr[checkingRow][column][0] *=2;
+                            fieldINarr[row][column][0]          =0;
                         }else{
                             break;
                         }
@@ -149,21 +147,21 @@ function moveTheFieldINarrUp(fieldINarr){
 
 function moveTheFieldINarrLeft(fieldINarr){
     let permittedMove=false;
-    for (let column = 1; column<=3; column++){
-        for (let row = 0; row<=3; row++){
-            if(fieldINarr[row][column][0]!==0){
-                for(let checkingColumn=column-1; checkingColumn>=0; checkingColumn--){
+    for (let column = 1; column <= 3; column++){
+        for (let row = 0; row <= 3; row++){
+            if( fieldINarr[row][column][0]!==0 ){
+                for(let checkingColumn = column-1; checkingColumn >= 0; checkingColumn--){
                     console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
-                    if(fieldINarr[row][checkingColumn][0]===0){
-                        permittedMove=true;
-                        fieldINarr[row][checkingColumn][0]=fieldINarr[row][column][0]
-                        fieldINarr[row][column][0]=0
-                        column=checkingColumn;
+                    if( fieldINarr[row][checkingColumn][0]===0 ){
+                        permittedMove                      =true;
+                        fieldINarr[row][checkingColumn][0] =fieldINarr[row][column][0];
+                        fieldINarr[row][column][0]         =0;
+                        column                             =checkingColumn;
                     } else {
-                        if(fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0]){
-                            permittedMove=true;
-                            fieldINarr[row][checkingColumn][0]*=2
-                            fieldINarr[row][column][0]=0
+                        if( fieldINarr[row][checkingColumn][0]===fieldINarr[row][column][0] ){
+                            permittedMove                       =true;
+                            fieldINarr[row][checkingColumn][0] *=2;
+                            fieldINarr[row][column][0]          =0;
                         }else{
                             break;
                         }

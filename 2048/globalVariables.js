@@ -12,9 +12,8 @@ const colorsLibrary = {
     1024: ['rgb(237, 197, 63)', 'rgb(249, 246, 242)'],
     2048: ['rgb(237, 194, 46)', 'rgb(249, 246, 242)']
 };
-//fieldINarray[row][column][number in filled cell = 0 or count to move = 1(for moveWithArrow function)] 
+//fieldINarray[row][column][number in filled cell = 0 or unusable thing that should be deleted = 1] 
 let fieldINarray = [[[0, 0], [0, 0], [0, 0], [0, 0]],
                     [[0, 0], [0, 0], [0, 0], [0, 0]],
                     [[0, 0], [0, 0], [0, 0], [0, 0]],
                     [[0, 0], [0, 0], [0, 0], [0, 0]]];
-// console.log(fieldINarray[1][0][0])
