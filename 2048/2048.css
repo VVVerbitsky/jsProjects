@@ -3,9 +3,7 @@
     padding:0;
     margin:0;
 }
-/* body{
-    height:2000px;
-} */
+
 @keyframes appear{
     from{
 
@@ -85,8 +83,6 @@
     width:100px;
     border-radius: 6%;
     transition: .1s;
-    /* margin-top:110px; */
-    /* animation: moveTop 3s linear infinite normal; */
 
  
 }
