@@ -58,10 +58,12 @@ function moveRight(fieldINarr){
         console.log(fieldINarr);
     }
 }
+
+
 function moveTheFieldINarrDown(fieldINarr){
     let permittedMove=false;
-    for (let row = 2; row >= 0; row--){
-        for (let column = 0; column <= 3; column++){
+    for (let column = 0; column <= 3; column++){
+        for (let row = 2; row >= 0; row--){
             if( fieldINarr[row][column][0]!==0 ){
                 for(let checkingRow = row+1; checkingRow <= 3; checkingRow++){
                     console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
@@ -90,8 +92,8 @@ function moveTheFieldINarrDown(fieldINarr){
 
 function moveTheFieldINarrRight(fieldINarr){
     let permittedMove=false;
-    for (let column = 2; column >= 0; column--){
-        for (let row = 0; row <= 3; row++){
+    for (let row = 0; row <= 3; row++){
+        for (let column = 2; column >= 0; column--){
             if( fieldINarr[row][column][0]!==0 ){
                 for(let checkingColumn = column+1; checkingColumn <= 3; checkingColumn++){
                     console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
@@ -120,8 +122,9 @@ function moveTheFieldINarrRight(fieldINarr){
 
 function moveTheFieldINarrUp(fieldINarr){
     let permittedMove=false;
-    for (let row = 1; row <= 3; row++){
-        for (let column = 0; column <= 3; column++){
+    
+    for (let column = 0; column <= 3; column++){
+        for (let row = 1; row <= 3; row++){
             if( fieldINarr[row][column][0]!==0 ){
                 for(let checkingRow = row-1; checkingRow >= 0;checkingRow--){
                     console.log('now is checking ', checkingRow, 'checkingRow in:',row,' ',column )
@@ -150,8 +153,8 @@ function moveTheFieldINarrUp(fieldINarr){
 
 function moveTheFieldINarrLeft(fieldINarr){
     let permittedMove=false;
-    for (let column = 1; column <= 3; column++){
-        for (let row = 0; row <= 3; row++){
+    for (let row = 0; row <= 3; row++){
+        for (let column = 1; column <= 3; column++){
             if( fieldINarr[row][column][0]!==0 ){
                 for(let checkingColumn = column-1; checkingColumn >= 0; checkingColumn--){
                     console.log('now is checking ', checkingColumn, 'checkingColumn in:',row,' ',column )
