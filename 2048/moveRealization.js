@@ -27,9 +27,9 @@ function moveTo(arrowKey, fieldINarr){
     }
 }
 function moveDown(fieldINarr){
-    document.removeEventListener('keydown', function(arrowKey) {
-        moveTo(arrowKey, fieldINarray)
-    });
+    // document.removeEventListener('keydown', function(arrowKey) {
+    //     moveTo(arrowKey, fieldINarray)
+    // });
     console.log(fieldINarr);
     if( moveTheFieldINarrDown(fieldINarr) ){
         transportBlocksDown(fieldINarr);
@@ -60,9 +60,9 @@ function transportBlocksDown(fieldINarr){
 }
 
 function moveUp(fieldINarr){
-    document.removeEventListener('keydown', function(arrowKey) {
-        moveTo(arrowKey, fieldINarray)
-    });
+    // document.removeEventListener('keydown', function(arrowKey) {
+    //     moveTo(arrowKey, fieldINarray)
+    // });
     console.log(fieldINarr);
     if( moveTheFieldINarrUp(fieldINarr) ){
         transportBlocksUp(fieldINarr);
@@ -71,9 +71,9 @@ function moveUp(fieldINarr){
             addRandomFilledCellTOfieldINarray();
             fillingFieldWithArray(fieldINarr);
             console.log(fieldINarr);
-            document.addEventListener('keydown', function(arrowKey) {
-                moveTo(arrowKey, fieldINarray);
-            });
+            // document.addEventListener('keydown', function(arrowKey) {
+            //     moveTo(arrowKey, fieldINarray);
+            // });
         }, 150)
     }
 }
@@ -93,9 +93,9 @@ function transportBlocksUp(fieldINarr){
 }
 
 function moveLeft(fieldINarr){
-    document.removeEventListener('keydown', function(arrowKey) {
-        moveTo(arrowKey, fieldINarray)
-    });
+    // document.removeEventListener('keydown', function(arrowKey) {
+    //     moveTo(arrowKey, fieldINarray)
+    // });
     console.log(fieldINarr);
     if( moveTheFieldINarrLeft(fieldINarr) ){
         transportBlocksLeft(fieldINarr);
@@ -104,9 +104,9 @@ function moveLeft(fieldINarr){
             addRandomFilledCellTOfieldINarray();
             fillingFieldWithArray(fieldINarr);
             console.log(fieldINarr);
-            document.addEventListener('keydown', function(arrowKey) {
-                moveTo(arrowKey, fieldINarray);
-            });
+            // document.addEventListener('keydown', function(arrowKey) {
+            //     moveTo(arrowKey, fieldINarray);
+            // });
         }, 150)
     }
 }
@@ -126,9 +126,9 @@ function transportBlocksLeft(fieldINarr){
 }
 
 function moveRight(fieldINarr){
-    document.removeEventListener('keydown', function(arrowKey) {
-        moveTo(arrowKey, fieldINarray)
-    });
+    // document.removeEventListener('keydown', function(arrowKey) {
+    //     moveTo(arrowKey, fieldINarray)
+    // });
     console.log(fieldINarr);
     if( moveTheFieldINarrRight(fieldINarr) ){
         transportBlocksRight(fieldINarr);
@@ -137,9 +137,9 @@ function moveRight(fieldINarr){
             addRandomFilledCellTOfieldINarray();
             fillingFieldWithArray(fieldINarr);
             console.log(fieldINarr);
-            document.addEventListener('keydown', function(arrowKey) {
-                moveTo(arrowKey, fieldINarray);
-            });
+            // document.addEventListener('keydown', function(arrowKey) {
+            //     moveTo(arrowKey, fieldINarray);
+            // });
         }, 150)
     }
 }
