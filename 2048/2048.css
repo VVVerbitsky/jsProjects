@@ -4,7 +4,7 @@
     margin:0;
 }
 
-@keyframes appear{
+/* @keyframes appear{
     from{
 
         scale:0;
@@ -15,8 +15,8 @@
     to{
         scale:1;
     }
-}
-@keyframes moveTop{
+} */
+/* @keyframes moveTop{
     from{
 
         margin-top:0px;
@@ -40,8 +40,9 @@
 
         margin-top:0px;
     }
-}
+} */
 #field{
+    /* position: relative; */
     padding-top: 1px;
     margin:auto;
     margin-top:100px;
@@ -52,21 +53,21 @@
 
 }
 .line{
+    /* position: relative; */
     height: 100px;
     margin-top:10px;
-
-
 
     
 }
 .cell{
- 
+    /* position: relative; */
     margin-left:10px;
     width:100px;
     height:100px;
     background-color: rgb(205, 193, 180);;
     float: left;
     border-radius: 6%;
+    z-index: 1;
 
 }
 .clearfix{
@@ -82,7 +83,7 @@
     height:100px;
     width:100px;
     border-radius: 6%;
-    transition: .1s;
-
+    transition: margin .15s;
+    z-index: 2;
  
 }
