@@ -75,6 +75,7 @@ function moveTheFieldINarrDown(fieldINarr){
                             permittedMove                       =true;
                             fieldINarr[checkingRow][column][0] *=2;
                             fieldINarr[row][column][0]          =0;
+                            row                                 =checkingRow;
                         }else{
                             break;
                         }
@@ -104,6 +105,7 @@ function moveTheFieldINarrRight(fieldINarr){
                             permittedMove                       =true;
                             fieldINarr[row][checkingColumn][0] *=2;
                             fieldINarr[row][column][0]          =0;
+                            column                              =checkingColumn;
                         }else{
                             break;
                         }
@@ -133,6 +135,7 @@ function moveTheFieldINarrUp(fieldINarr){
                             permittedMove                       =true;
                             fieldINarr[checkingRow][column][0] *=2;
                             fieldINarr[row][column][0]          =0;
+                            row                                 =checkingRow;
                         }else{
                             break;
                         }
@@ -162,6 +165,7 @@ function moveTheFieldINarrLeft(fieldINarr){
                             permittedMove                       =true;
                             fieldINarr[row][checkingColumn][0] *=2;
                             fieldINarr[row][column][0]          =0;
+                            column                              =checkingColumn;
                         }else{
                             break;
                         }
