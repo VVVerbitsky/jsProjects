@@ -9,18 +9,18 @@
     min-height: 100px;
     margin:80px auto;
     padding-bottom:30px;
-    background-color: rgb(221, 221, 221);
+    background:radial-gradient(circle, rgba(51,57,59,1) 0%, rgba(54,12,224,1) 100%);
     padding-top:10px;
     border-radius: 10px;
 }
 .add{
     display:inline-block;
-    
     width:40px;
-    line-height:37px;
+    line-height:41px;
     /* min-height: 55px; */
+    margin-left:21px;
     position:relative;
-    top:-14px;
+    top:-12px;
     /* left:470px; 
     top:-40px; */
     text-align: center;
@@ -30,9 +30,10 @@
 }
 .add:hover{
     cursor:pointer;
+    transform: scale(1.05);
 }
 .add:active{
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 textarea{
     display:inline-block;
@@ -51,7 +52,7 @@ textarea{
 }
 .head{
     
-    /* width:400px; */
+    color:white;
     margin-left:31px;
     margin-right:31px;
     font-weight: bold;
@@ -65,6 +66,7 @@ textarea{
     border-bottom:1px solid grey;
 }
 p{
+    color:white;
     word-break: break-all;
     display:inline-block;
     width:416px;
@@ -74,16 +76,26 @@ input{
     cursor: pointer;
     margin-top:3px;
 }
+/* .input:hover{
+
+    transform: scale(1.05);
+}
+.input:active{
+    transform: scale(0.95);
+} */
 .done>p{
     text-decoration-line: line-through;
-    color:gray;
+    color:rgb(213, 205, 104);
 }
 .delete:hover{
     cursor: pointer;
-    color:rgb(255, 0, 0);
+    color:rgb(233, 118, 30);
 }
 .delete{
+    color:white;
     padding:2px;
-    color:grey;
     /* background-color: blue; */
+}
+.delete>b{
+    cursor: pointer;
 }
