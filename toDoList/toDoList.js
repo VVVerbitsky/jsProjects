@@ -1,14 +1,14 @@
 !function(){
-    let textarea=document.getElementsByTagName('textarea')[0];
-    let addButton=document.getElementsByClassName('add')[0];
-    let toDoPull=document.getElementsByClassName('toDoPull')[0];
-    let donePull=document.getElementsByClassName('donePull')[0];
+    const textarea=document.getElementsByTagName('textarea')[0];
+    const addButton=document.getElementsByClassName('add')[0];
+    const toDoPull=document.getElementsByClassName('toDoPull')[0];
+    const donePull=document.getElementsByClassName('donePull')[0];
 
     function createTask(doList,doneList,textSource){
         if(textSource!=''){
             textarea.value='';
 
-            let task=document.createElement('div');
+            const task=document.createElement('div');
             task.className='toDoElem';
 
             task.appendChild(createCheckbox(task, doList, doneList));
@@ -21,7 +21,7 @@
     }
 
     function createCheckbox(task, doList, doneList){
-        let checkbox=document.createElement('input');
+        const checkbox=document.createElement('input');
             checkbox.type='checkbox';
 
             checkbox.addEventListener('click',()=>{
@@ -37,13 +37,13 @@
     }
 
     function createTaskText(textSource){
-        let taskText=document.createElement('p');
+        const taskText=document.createElement('p');
         taskText.innerHTML=textSource;
         return taskText;
     }
 
     function createDeleteButton(task){
-        let deleteButton=document.createElement('div');
+        const deleteButton=document.createElement('div');
         deleteButton.className='delete';
         deleteButton.innerHTML='delete';
         deleteButton.addEventListener('click',()=>{task.remove()});
