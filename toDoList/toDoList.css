@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    cursor:default;
 }
 #main{
     /* border:1px solid black; */
@@ -46,6 +47,7 @@ textarea{
     outline:none;
     text-align: center;
     overflow: hidden;
+    cursor:text;
 }
 .head{
     
@@ -63,20 +65,22 @@ textarea{
     border-bottom:1px solid grey;
 }
 p{
+    word-break: break-all;
     display:inline-block;
     width:416px;
     padding-left:3px;
 }
 input{
+    cursor: pointer;
     margin-top:3px;
 }
-.completed>p{
+.done>p{
     text-decoration-line: line-through;
     color:gray;
 }
 .delete:hover{
     cursor: pointer;
-    color:green;
+    color:rgb(255, 0, 0);
 }
 .delete{
     padding:2px;
