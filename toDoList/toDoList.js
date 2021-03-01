@@ -45,7 +45,7 @@
     function createDeleteButton(task) {
         const deleteButton = document.createElement('div');
         deleteButton.className = 'delete';
-        deleteButton.innerHTML = 'delete';
+        deleteButton.innerHTML = '<b>delete</b>';
         deleteButton.addEventListener('click', () => { task.remove() });
         return deleteButton;
     }
