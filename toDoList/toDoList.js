@@ -5,7 +5,7 @@
     const donePull = document.getElementsByClassName('donePull')[0];
 
     function createTask(doList, doneList, textSource) {
-        if (textSource != '') {
+        if (textSource) {
             textarea.value = '';
 
             const task = document.createElement('div');
